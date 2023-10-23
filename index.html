@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <section class="quiz_page"></section>
     <header class="header">
       <nav class="nav">
         <p class="logo">Quiz.</p>
@@ -19,15 +20,18 @@
           <li class="nav__list-element"><a href="">Contact</a></li>
         </ul>
       </nav>
-      <div class="header__title">
-        <h1>QUIZ WEBSITE</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In harum
-          obcaecati praesentium nam aliquam. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. In harum obcaecati praesentium nam
-          aliquam.
-        </p>
-        <button class="header__button">Start</button>
+
+      <div class="container">
+        <div class="header__title">
+          <h1>QUIZ WEBSITE</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In harum
+            obcaecati praesentium nam aliquam. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. In harum obcaecati praesentium nam
+            aliquam.
+          </p>
+          <button class="header__button">Start</button>
+        </div>
       </div>
     </header>
 
@@ -38,8 +42,24 @@
       <p>3. Lorem ipsum dolor sit, amet consectetur adipisicing</p>
       <p>4. Lorem ipsum dolor sit, amet consectetur adipisicing</p>
       <p>5. Lorem ipsum dolor sit, amet consectetur adipisicing</p>
-      <button class="pop-out__btn">Exit Quiz</button>
-      <button class="pop-out__btn">Continue</button>
+      <button class="pop-out__btn pop-out__btn--continue">Continue</button>
+      <button class="pop-out__btn pop-out__btn--exit">Exit Quiz</button>
+    </div>
+
+    <div class="quiz-box">
+      <h1>Owca Quiz</h1>
+      <div class="quiz-header">
+        <span>Quiz Webstite Tutorials</span>
+        <span class="header-score">Score 0/5</span>
+      </div>
+      <h2 class="question-text">What does HTML stand for?</h2>
+
+      <div class="option-list">
+        <div class="option"><span>A. Hyper Type Multi Language</span></div>
+        <div class="option"><span>B. Hyper Text Multiple Language</span></div>
+        <div class="option"><span>C. Hyper Text Markup Language</span></div>
+        <div class="option"><span>D. Home Text Multi Language</span></div>
+      </div>
     </div>
 
     <script src="main.js"></script>
