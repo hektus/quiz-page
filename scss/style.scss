@@ -26,8 +26,6 @@ body {
   pointer-events: none;
 }
 
-.wrapper {
-}
 .logo {
   padding-left: 10px;
   padding-top: 10px;
@@ -185,14 +183,75 @@ body {
 }
 
 .quiz-box {
-  border: 3px solid white;
+  border: 2px solid white;
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 450px;
-  height: 600px;
+  height: 550px;
   background-color: black;
   color: white;
+
+  h1 {
+    text-align: center;
+
+    color: black;
+    margin: 10px 20px;
+    background: linear-gradient(45deg, transparent, white, transparent);
+    border-radius: 6px;
+  }
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 30px 20px;
+  border-bottom: 2px white solid;
+}
+
+.header-score {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.question-text {
+  margin: 20px 20px;
+}
+
+.option__list {
+  margin: 20px 20px;
+
+  &-item {
+    padding: 10px;
+    border: 1px solid white;
+    margin-top: 15px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: grey;
+    }
+  }
+}
+
+.quiz-footer {
+  border-top: 2px solid white;
+  margin: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.btn-next {
+  height: 40px;
+  width: 80px;
+  margin-top: 15px;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
 }
