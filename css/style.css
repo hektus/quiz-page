@@ -193,7 +193,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 450px;
-  height: 550px;
+  max-height: 550px;
   background-color: black;
   color: white;
 }
@@ -265,4 +265,14 @@ body {
   border-radius: 6px;
   background-color: white;
   cursor: pointer;
+}
+
+.correct-answer {
+  background-color: green;
+  border: 1px solid green;
+}
+
+.bad-answer {
+  background-color: red;
+  border: 1px solid red;
 }/*# sourceMappingURL=style.css.map */
