@@ -3,6 +3,7 @@ const questionTotal = document.querySelector(".question-total");
 const questionText = document.querySelector(".question-text");
 const optionList = document.querySelector(".option__list");
 const headerScore = document.querySelector(".header-score");
+
 let score = 0;
 let index = 0;
 
@@ -65,35 +66,20 @@ let questions = [
 ];
 
 let questionCount = questions[index].number;
-// function questionAnswer() {
-//   if ("?" === questions[0].answer) console.log("Brawo");
-// }
-
-// questionOption.forEach(function (question) {
-//   question.addEventListener("click", questionAnswer);
-// });
-
-// btnNext.addEventListener("click", nextQuestion);
-
-// questionOption.forEach(function (question) {
-//   question.addEventListener("click", function (event) {
-//     const selectedOption = event.target.innerText;
-//     questionAnswer(selectedOption);
-//   });
-// });
-
-// function questionAnswer(selectedOption) {
-//   if (selectedOption === questions[0].answer) {
-//     console.log("Brawo");
-//   } else {
-//     console.log("Zle");
-//   }
-// }
 
 function selectedOption() {
   const option = [...document.querySelectorAll(".option__list-item")];
   option.forEach((option) => {
     option.setAttribute("onclick", "selected(this)");
+  });
+}
+
+function clearOtherOptions() {
+  const option = [...document.querySelectorAll(".option__list-item")];
+  option.forEach((option) => {
+    option.setAttribute("onclick", "");
+    option.style.cursor = "default";
+    option.style.backgroundColor = "black";
   });
 }
 
@@ -112,18 +98,24 @@ function displayQuestions() {
     <div class="option__list-item">${questions[index].options[3]}</div> `;
 
     optionList.innerHTML = options;
-  } else alert("koniec");
+  } else {
+    quizBox.style.display = "none";
+  }
 }
 
 function selected(answer) {
   userAnswer = answer.textContent;
   let correctAnswer = questions[questionCount - 1].answer;
   if (userAnswer === correctAnswer) {
-    console.log("YES");
-    score++;
-    headerScore.textContent = `Score ${score}/${questions.length}`;
+    answer.classList.add("correct-answer");
+    if (score < questions.length) {
+      score++;
+      headerScore.textContent = `Score ${score}/${questions.length}`;
+      clearOtherOptions();
+    }
   } else {
-    console.log("No");
+    answer.classList.add("bad-answer");
+    clearOtherOptions();
   }
 }
 
