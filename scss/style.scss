@@ -196,7 +196,6 @@ body {
 
   h1 {
     text-align: center;
-
     color: black;
     margin: 10px 20px;
     background: linear-gradient(45deg, transparent, white, transparent);
@@ -264,4 +263,58 @@ body {
 .bad-answer {
   background-color: red;
   border: 1px solid red;
+}
+
+.result-box {
+  border: 2px solid white;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 500px;
+  background-color: black;
+  color: white;
+
+  h1 {
+    margin: 0 20px;
+    font-size: 60px;
+    padding-top: 20px;
+    text-align: center;
+  }
+}
+
+.result-score {
+  padding-top: 40px;
+  div {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  h2 {
+    padding-top: 20px;
+    text-align: center;
+  }
+}
+
+.result-footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+.try-again {
+  border: 2px black solid;
+  background-color: white;
+  color: black;
+  transition: 0.4s;
+}
+
+.go-home {
+  border: 2px black solid;
+  background-color: white;
+  color: black;
+  transition: 0.4s;
 }

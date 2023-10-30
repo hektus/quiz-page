@@ -3,7 +3,9 @@ const questionTotal = document.querySelector(".question-total");
 const questionText = document.querySelector(".question-text");
 const optionList = document.querySelector(".option__list");
 const headerScore = document.querySelector(".header-score");
-
+const resultBox = document.querySelector(".result-box");
+const yourScore = document.querySelector(".your-score");
+const tryAgain = document.querySelector(".try-again");
 let score = 0;
 let index = 0;
 
@@ -100,6 +102,8 @@ function displayQuestions() {
     optionList.innerHTML = options;
   } else {
     quizBox.style.display = "none";
+    yourScore.textContent = `Your Score ${score} out of ${questions.length}`;
+    resultBox.style.display = "block";
   }
 }
 
@@ -122,4 +126,13 @@ function selected(answer) {
 btnNext.addEventListener("click", () => {
   displayQuestions();
   selectedOption();
+});
+
+tryAgain.addEventListener("click", () => {
+  quizBox.style.display = "block";
+  resultBox.style.display = "none";
+  questionCount = questions[index].number;
+  index = 0;
+  score = 0;
+  displayQuestions();
 });

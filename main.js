@@ -7,6 +7,8 @@ const quizPage = document.querySelector(".quiz_page");
 const body = document.querySelector("body");
 const quizBox = document.querySelector(".quiz-box");
 
+const goHome = document.querySelector(".go-home");
+
 startBtn.addEventListener("click", () => {
   quizGuide.style.display = "block";
   header.classList.add("filter");
@@ -22,6 +24,20 @@ continueBtn.addEventListener("click", () => {
   header.classList.remove("filter");
   quizGuide.style.display = "none";
   showQuizbox();
+});
+
+goHome.addEventListener("click", () => {
+  location.reload();
+});
+
+tryAgain.addEventListener("click", () => {
+  quizBox.style.display = "block";
+  resultBox.style.display = "none";
+  questionCount = questions[index].number;
+  index = 0;
+  score = 0;
+
+  displayQuestions();
 });
 
 function showQuizbox() {
