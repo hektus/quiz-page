@@ -285,14 +285,26 @@ body {
   }
 }
 
+.percent-container {
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(white 3.6deg, grey 0deg);
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.progress-value {
+  font-size: 40px;
+  font-weight: bold;
+}
+
 .result-score {
   padding-top: 40px;
-  div {
-    width: 200px;
-    height: 200px;
-    background-color: white;
-    margin: 0 auto;
-  }
+
   h2 {
     padding-top: 20px;
     text-align: center;

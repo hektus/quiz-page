@@ -297,14 +297,31 @@ body {
   text-align: center;
 }
 
-.result-score {
-  padding-top: 40px;
-}
-.result-score div {
+.percent-container {
   width: 200px;
   height: 200px;
-  background-color: white;
+  background: conic-gradient(white 3.6deg, grey 0deg);
   margin: 0 auto;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+}
+
+.progress-value {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.result-score {
+  padding-top: 40px;
 }
 .result-score h2 {
   padding-top: 20px;

@@ -6,8 +6,9 @@ const headerScore = document.querySelector(".header-score");
 const resultBox = document.querySelector(".result-box");
 const yourScore = document.querySelector(".your-score");
 const tryAgain = document.querySelector(".try-again");
-let score = 0;
-let index = 0;
+const circularProgress = document.querySelector(".circular-progress");
+const progressValue = document.querySelector(".progress-value");
+const percent = document.querySelector(".percent-container");
 
 let questions = [
   {
@@ -67,7 +68,9 @@ let questions = [
   },
 ];
 
-let questionCount = questions[index].number;
+let score = 0;
+let index = 0;
+let questionNumb = questions[index].number;
 
 function selectedOption() {
   const option = [...document.querySelectorAll(".option__list-item")];
@@ -85,13 +88,10 @@ function clearOtherOptions() {
   });
 }
 
-selectedOption();
-
 function displayQuestions() {
-  if (questionCount < questions.length) {
-    questionCount++;
-    index++;
-    questionTotal.textContent = `${questionCount} of ${questions.length} Questions`;
+  if (questionNumb <= questions.length) {
+    // index++;
+    questionTotal.textContent = `${questionNumb} of ${questions.length} Questions`;
     questionText.textContent = `${questions[index].number}. ${questions[index].question}`;
 
     let options = `<div class="option__list-item">${questions[index].options[0]}</div>
@@ -100,16 +100,19 @@ function displayQuestions() {
     <div class="option__list-item">${questions[index].options[3]}</div> `;
 
     optionList.innerHTML = options;
+
+    selectedOption();
   } else {
     quizBox.style.display = "none";
     yourScore.textContent = `Your Score ${score} out of ${questions.length}`;
     resultBox.style.display = "block";
+    showResultBoxProgress();
   }
 }
 
 function selected(answer) {
   userAnswer = answer.textContent;
-  let correctAnswer = questions[questionCount - 1].answer;
+  let correctAnswer = questions[questionNumb - 1].answer;
   if (userAnswer === correctAnswer) {
     answer.classList.add("correct-answer");
     if (score < questions.length) {
@@ -123,16 +126,29 @@ function selected(answer) {
   }
 }
 
-btnNext.addEventListener("click", () => {
-  displayQuestions();
-  selectedOption();
-});
+function showResultBoxProgress() {
+  let progressStartValue = -1;
+  let progressEndValue = (score / questions.length) * 100;
+  let speed = 20;
 
-tryAgain.addEventListener("click", () => {
-  quizBox.style.display = "block";
-  resultBox.style.display = "none";
-  questionCount = questions[index].number;
-  index = 0;
-  score = 0;
-  displayQuestions();
-});
+  let progress = setInterval(() => {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`;
+    percent.style.background = `conic-gradient(white ${
+      progressStartValue * 3.6
+    }deg, grey 0deg)`;
+    if (progressStartValue === progressEndValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+
+  // let maxPercent = 100;
+
+  // const oneQuestionPercent = maxPercent / questions.length;
+
+  // if (score) {
+  //   progressValue.textContent = `${score * oneQuestionPercent}%`;
+  // }
+}
+
+displayQuestions();
